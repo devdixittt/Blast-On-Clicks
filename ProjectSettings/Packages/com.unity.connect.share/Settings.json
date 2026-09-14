@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/devdi/OneDrive/Documents/Prototype5/WebGL Builds;;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/devdi/OneDrive/Documents/Blast-On-Clicks-main/WebGL Builds;C:/Users/devdi/OneDrive/Documents/Prototype5/WebGL Builds;;;;;;;;\"}"
             }
         ]
     }

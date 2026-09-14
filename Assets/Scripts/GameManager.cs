@@ -11,19 +11,25 @@ public class GameManager : MonoBehaviour
     public List<GameObject> Targets;
     private float spawnRate = 2.0f;
     public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI BestScoreText;
     public TextMeshProUGUI gameOver;
     public TextMeshProUGUI Lives;
     public Button restart;
     public bool isGameActive;
     private int score;
+    private int bestScore;
     public GameObject Titlescreen;
     private int life;
     public GameObject Panel;
     private bool paused;
     void Start()
     {
-        
-        
+        // Load best score and show it on the title screen (if assigned)
+        bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        if (BestScoreText != null)
+        {
+            BestScoreText.text = "Best: " + bestScore;
+        }
     }
 
     // Update is called once per frame
@@ -64,7 +70,14 @@ public class GameManager : MonoBehaviour
     
     public void GameOver()
     {
-        
+        // Save best score if current score is higher
+        if (score > bestScore)
+        {
+            bestScore = score;
+            PlayerPrefs.SetInt("BestScore", bestScore);
+            PlayerPrefs.Save();
+        }
+
         gameOver.gameObject.SetActive(true);
         isGameActive = false;
         restart.gameObject.SetActive(true);
